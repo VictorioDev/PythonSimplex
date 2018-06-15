@@ -75,7 +75,7 @@ def showResults():
 
 #Encontra a linha pivo
 def findPivotRow(pivotColumn):
-    #Procura pela primeira linha que o dividendo seja maior que 0.
+    #Procura pela primeira linha que o divisor seja maior que 0 (Para que não ocorra divisão por 0).
     firstPos = 0
     for i in range(lines - 1):
         if mat[2][pivotColumn] > 0:
@@ -99,15 +99,13 @@ def findPivotRow(pivotColumn):
                     row = i
     return row
 
-
+#Fluxo principal do programa
 showMatrix()
 while(not evaluateMatrix()):
     pivotColumn = findPivotColumn()
-
     print "Coluna Pivo: " + str(pivotColumn)
     pivotRow = findPivotRow(pivotColumn)
     print "Linha Pivo: " + str(pivotRow)
-    
     print "Normalizando linha..."
     normalizeLine(pivotRow,pivotColumn)
     changeVarPos(pivotRow, pivotColumn)
