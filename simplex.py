@@ -10,12 +10,12 @@ mat = [[1,1,1,4,1,0,0,250],
        [3,2,4,0,0,0,1,500],
        [-100,-80,-120,-20,0,0,0,0]]
 
-vb = ["x5","x6","x7","Z"]
+bv = ["x5","x6","x7","Z"]
 nv = ["x1","x2","x3","x4","x5","x6","x7","B"]
 
 #Encontra a coluna pivo
 def findPivotColumn():
-    #Pega a ulitma linha da matriz e assume que o menor valor está na posição 0
+    #Pega a ulitma linha da matriz e assume que o menor valor está na posição 0.
     lastLine = mat[lines - 1]
     leastValue = lastLine[0]
 
@@ -27,9 +27,9 @@ def findPivotColumn():
             column = i 
     return column
 
+#Multiplicaa linha pivo pelo valor necessário para tornar o valor 1.
 def normalizeLine(pivotRow, pivotColumn):
     matValue = mat[pivotRow][pivotColumn]
-    print ("Mat Value: " + str(matValue))
     if matValue > 0:
         multiplier = matValue ** -1
     else:
@@ -37,38 +37,45 @@ def normalizeLine(pivotRow, pivotColumn):
     for i in range(columns):
         mat[pivotRow][i] = mat[pivotRow][i] * multiplier
 
+#Mostra a matriz.
 def showMatrix():
     for i in range(lines):
         print mat[i]
 
+#Realiza as modificações na matriz.
 def applyChanges(pivotRow,pivotColumn):
     for i in range(lines):
         if i != pivotRow:
             value = mat[i][pivotColumn]
             if value != 0:
                 multiplier = value * -1
+                #Realiza a soma de cada linha que o valor abaixo ou acima do pivo seja diferente de 0
                 sumLines(multiplier, i, pivotRow)
 
-
+#Realiza a soma da linha pivo multiplicada com a linha desejada.
 def sumLines(multiplier, currentLine, pivotRow):
     for i in range(columns):
         mat[currentLine][i] = mat[currentLine][i] + (mat[pivotRow][i] * multiplier)
 
+#Verifica se existem só valores positivos ou zeros
 def evaluateMatrix():
     for i in range(columns):
         if mat[lines - 1][i] < 0:
             return False
     return True
 
+#Troca as variáveis básicas e as variáveis normais de posição 
 def changeVarPos(pivotRow, pivotColumn):
-    vb[pivotRow] = nv[pivotColumn]
+    bv[pivotRow] = nv[pivotColumn]
 
+#Mostra os valores das variáveis que sobraram no vetor bv
 def showResults():
     for i in range(lines):
-        print vb[i] + ": " + str(mat[i][columns - 1]) 
+        print bv[i] + ": " + str(mat[i][columns - 1]) 
 
+#Encontra a linha pivo
 def findPivotRow(pivotColumn):
-    #A matriz possui quatro linhas, para começar, assumimos que ultima linha tenha o menor valor.
+    #Procura pela primeira linha que o dividendo seja maior que 0.
     firstPos = 0
     for i in range(lines - 1):
         if mat[2][pivotColumn] > 0:
