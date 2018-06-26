@@ -1,0 +1,134 @@
+<Tela>:
+    orientation: "vertical"
+    heigth: 450
+    bgcolor: "#F00"
+    id: tela
+    BoxLayout:
+        Label:
+            text: "Logo"
+        Label:
+        Label:
+        Label:
+        Label:
+        Label:
+            text: "Desenvolvido por Luciano & Victorio"
+
+    BoxLayout:
+        padding: 10
+        orientation: "horizontal"
+        Label:
+            text: ""
+        Label:
+            text: "Tábua"
+        Label:
+            text: "Prancha"
+        Label:
+            text: "Painéis"
+        Label:
+            text: "Valor Lucro"
+
+    BoxLayout:
+        padding: 22
+        spacing: 10
+        orientation: "horizontal"
+        Label:
+            width: 200
+            heigth: 300
+            id: escrivLabel
+            text: "Escrivaninha:"
+        TextInput:
+            id: tabuaEscrivaninha
+            text: "1"
+            
+        TextInput:
+            id: pranchaEscrivaninha
+            text: "0"
+        TextInput:
+            id: painelEscrivaninha
+            text: "3"
+        TextInput:
+            id: lucroEscrivaninha
+            text: "100"
+
+    BoxLayout:
+        padding: 22
+        spacing: 10
+        Label:
+            text: "Mesa:"
+        TextInput:
+            id: tabuaMesa
+            text: "1"
+        TextInput:
+            id: pranchaMesa
+            text: "1"
+        TextInput:
+            id: painelMesa
+            text: "2"
+        TextInput:
+            id: lucroMesa
+            text: "80"
+    BoxLayout:
+        padding: 22
+        spacing: 10
+        Label:
+            id: armarioLabel
+            text: "Armario:"
+        TextInput:
+            id: tabuaArmario
+            text: "1"
+        TextInput:
+            id: pranchaArmario
+            text: "1"
+        TextInput:
+            id: painelArmario
+            text: "4"
+        TextInput:
+            id: lucroArmario
+            text: "120"
+    BoxLayout:
+        padding: 22
+        spacing: 10
+        Label:
+            id: pratLabel
+            text: "Prateleira:"
+        TextInput:
+            id: tabuaPrateleira
+            text: "4"
+            
+        TextInput:
+            id: pranchaPrateleira
+            text: "2"
+        TextInput:
+            id: painelPrateleira
+            text: "0"
+        TextInput:
+            id: lucroPrateleira
+            text: "20"
+    BoxLayout:
+        padding: 22
+        spacing: 10
+        Label:
+            id: pratLabel
+            text: "Disponibilidade:"
+        TextInput:
+            id: tabuaDisponibilidade
+            text: "250"
+        TextInput:
+            id: pranchaDisponibilidade
+            text: "600"
+        TextInput:
+            id: painelDisponibilidade
+            text: "500"
+        Label:
+            text: ""
+    BoxLayout:
+        padding: 22
+        spacing: 10
+        orientation: "horizontal"
+        Label:
+            text: "Resultado"
+        Label:
+            text: "djoidjeodhehdoheodhiehdhe"
+        Button:
+            on_release: root.getInputs()
+            text: "Calcular"
